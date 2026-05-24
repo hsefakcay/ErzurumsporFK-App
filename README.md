@@ -1,5 +1,3 @@
-<img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 - 2026-05-24 at 22 44 00" src="https://github.com/user-attachments/assets/0557aca4-eca0-4039-b203-13af835227cf" />
-<div align="center">
 
 <img src="assets/images/erzurumspor_logo.png" alt="Erzurumspor FK Logo" width="120"/>
 
@@ -46,7 +44,7 @@
 
 | Home | Fixtures | Squad |
 |------|----------|-------|
-| <img src="<img width="200" alt="Simulator Screenshot - iPhone 17 - 2026-05-24 at 22 44 00" src="https://github.com/user-attachments/assets/ed5d317b-6250-4fe9-8396-1a0658a7ff8e" /> | <img src="<img width="1" alt="Simulator Screenshot - iPhone 17 - 2026-05-24 at 22 44 57" src="https://github.com/user-attachments/assets/d05dfab6-f2bd-4b43-b452-6519218ce363" /> | <img src=<img width="200" alt="Simulator Screenshot - iPhone 17 - 2026-05-24 at 22 45 06" src="https://github.com/user-attachments/assets/7e8b97b7-7b5f-42ab-9c1b-67de0b8a4235" />" |
+| <img src="<img width="200" alt="Simulator Screenshot - iPhone 17 - 2026-05-24 at 22 44 00" src="https://github.com/user-attachments/assets/ed5d317b-6250-4fe9-8396-1a0658a7ff8e" /> | <img src="<img width="200" alt="Simulator Screenshot - iPhone 17 - 2026-05-24 at 22 44 57" src="https://github.com/user-attachments/assets/d05dfab6-f2bd-4b43-b452-6519218ce363" /> | <img src=<img width="200" alt="Simulator Screenshot - iPhone 17 - 2026-05-24 at 22 45 06" src="https://github.com/user-attachments/assets/7e8b97b7-7b5f-42ab-9c1b-67de0b8a4235" />" |
 
 | Standings | Shop | Wallpapers |
 |-----------|------|------------|
