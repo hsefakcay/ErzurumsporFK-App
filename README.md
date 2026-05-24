@@ -37,6 +37,24 @@
 
 ---
 
+## 📸 Screenshots
+
+> Add your app screenshots to the `docs/screenshots/` folder and update the paths below.
+
+<div align="center">
+
+| Home | Fixtures | Squad |
+|------|----------|-------|
+| <img src="docs/screenshots/home.png" width="200"/> | <img src="docs/screenshots/fixtures.png" width="200"/> | <img src="docs/screenshots/squad.png" width="200"/> |
+
+| Standings | Shop | Wallpapers |
+|-----------|------|------------|
+| <img src="docs/screenshots/standings.png" width="200"/> | <img src="docs/screenshots/shop.png" width="200"/> | <img src="docs/screenshots/wallpapers.png" width="200"/> |
+
+</div>
+
+---
+
 ## 🏗️ Architecture
 
 The project follows **Clean Architecture** principles with a clear separation of concerns:
@@ -97,6 +115,26 @@ lib/
 | `gal` | Save wallpapers to device gallery |
 | `path_provider` | File system access |
 | `flutter_cache_manager` | Advanced caching layer |
+
+---
+
+## 🌐 Data Sources & API
+
+Match fixtures and league standings are fetched in real-time from **[TheSportsDB](https://www.thesportsdb.com/)** — a free, community-driven sports data API.
+
+| Data | Endpoint | Details |
+|---|---|---|
+| Upcoming Matches | `eventsnext.php?id=134272` | Next scheduled matches for Erzurumspor FK |
+| Past Results | `eventslast.php?id=134272` | Most recent match results |
+| League Standings | `lookuptable.php?l=4676` | Trendyol 1. Lig full standings table |
+
+```
+Base URL: https://www.thesportsdb.com/api/v1/json/123
+Team ID:  134272  (Erzurumspor FK)
+League ID: 4676   (Trendyol 1. Lig)
+```
+
+> 📰 **News & Squad data** are managed via **Cloud Firestore** for real-time updates without requiring an app release.
 
 ---
 
