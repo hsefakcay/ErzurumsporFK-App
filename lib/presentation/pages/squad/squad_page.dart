@@ -66,8 +66,6 @@ class _SquadPageState extends State<SquadPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildAboutSection(),
-              const SizedBox(height: 24),
               _buildSquadHeader(),
               const SizedBox(height: 16),
               _buildPlayersSection(players),
@@ -79,29 +77,6 @@ class _SquadPageState extends State<SquadPage> {
           ),
         );
       },
-    );
-  }
-
-  /// Hakkımızda bölümü.
-  Widget _buildAboutSection() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text('Hakkımızda', style: AppTextStyles.headlineLg),
-        const SizedBox(height: 8),
-        Container(
-          padding: const EdgeInsets.all(12),
-          decoration: BoxDecoration(
-            color: AppColors.surfaceContainerLow,
-            borderRadius: BorderRadius.circular(20),
-            border: Border.all(color: AppColors.outline.withValues(alpha: 0.1)),
-          ),
-          child: Text(
-            "Sporun başkenti olan Erzurum’da 24 Mart 1972 yılında kurulan Erzurum Büyükşehir Belediyespor, Erzurum Büyükşehir Belediye Başkanı Mehmet Sekmen tarafından ismi Büyükşehir Belediye Erzurumspor olarak değiştirilmiştir. Amatör ruhtan profesyonelliğe Başkan Mehmet Sekmen ile ulaşan takımımız, 3 yıl gibi kısa bir sürede 3. Lig'den Süper Lig'e yükselmiştir. Mavi Beyazlı kulübümüz Türkiye'de en büyük taraftar kitlesine sahip Anadolu takımlarından biridir.",
-            style: AppTextStyles.labelMd.copyWith(color: AppColors.onSurface),
-          ),
-        ),
-      ],
     );
   }
 

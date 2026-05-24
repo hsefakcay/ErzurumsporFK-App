@@ -13,9 +13,10 @@ abstract final class AppAssets {
   static const String splashBgPath = 'assets/images/splash_bg.jpg';
   static const String wallpaper1 = 'assets/images/wallpaper1.png';
   static const String wallpaper2 = 'assets/images/wallpaper2.png';
+  static const String wallpaper3 = 'assets/images/wallpaper3.png';
 
   /// Tüm duvar kağıtları listesi
-  static const List<String> wallpapers = [wallpaper1, wallpaper2];
+  static const List<String> wallpapers = [wallpaper1, wallpaper2, wallpaper3];
 }
 
 /// Tasarım sabitleri (spacing, radius, vb.)
@@ -38,5 +39,4 @@ abstract final class AppRadius {
   static const double lg = 8.0;
   static const double xl = 12.0;
   static const double xxl = 16.0;
-  static const double full = 9999.0;
 }

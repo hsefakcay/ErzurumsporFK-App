@@ -10,13 +10,14 @@ class MockMatchRepository implements IMatchRepository {
       homeTeam: 'Erzurumspor FK',
       homeTeamShort: 'ERZ',
       homeTeamLogoUrl: null,
-      awayTeam: 'Rakip Takım',
-      awayTeamShort: 'RAK',
-      awayTeamLogoUrl: null,
-      matchDate: DateTime(2024, 11, 24, 19, 0),
+      awayTeam: 'Çorum FK',
+      awayTeamShort: 'ÇOR',
+      awayTeamLogoUrl:
+          "https://upload.wikimedia.org/wikipedia/tr/3/37/%C3%87orum_FK.png?_=20200112204145",
+      matchDate: DateTime(2025, 9, 6, 19, 0),
       stadium: 'Kazım Karabekir Stadyumu',
       league: 'Trendyol 1. Lig',
-      week: 14,
+      week: 3,
     );
   }
 
@@ -25,31 +26,64 @@ class MockMatchRepository implements IMatchRepository {
     return [
       Match(
         id: 'match-1',
-        homeTeam: 'Umraniyespor',
-        homeTeamShort: 'UMR',
-        awayTeam: 'Erzurumspor FK',
-        awayTeamShort: 'ERZ',
-        matchDate: DateTime(2025, 3, 19, 16, 0),
-        stadium: 'Ümraniye Stadyumu',
-        league: 'Trendyol 1. Lig',
-        week: 24,
-      ),
-      Match(
-        id: 'match-2',
         homeTeam: 'Erzurumspor FK',
         homeTeamShort: 'ERZ',
-        awayTeam: 'Gaziantep FK',
-        awayTeamShort: 'GZT',
-        matchDate: DateTime(2025, 4, 2, 20, 0),
+        awayTeam: 'Çorum FK',
+        awayTeamShort: 'ÇOR',
+        awayTeamLogoUrl:
+            "https://upload.wikimedia.org/wikipedia/tr/3/37/%C3%87orum_FK.png?_=20200112204145",
+        matchDate: DateTime(2025, 9, 6, 19, 0),
         stadium: 'Kazım Karabekir Stadyumu',
         league: 'Trendyol 1. Lig',
-        week: 25,
+        week: 3,
+      ),
+      Match(
+        id: 'match-4',
+        homeTeam: 'Boluspor',
+        homeTeamShort: 'BOL',
+        homeTeamLogoUrl:
+            'https://upload.wikimedia.org/wikipedia/tr/2/22/Boluspork.png?_=20180829194643',
+        awayTeam: 'Erzurumspor FK',
+        awayTeamShort: 'ERZ',
+        matchDate: DateTime(2025, 9, 27, 15, 0),
+        stadium: 'Bolu Atatürk Stadyumu',
+        league: 'Trendyol 1. Lig',
+        week: 6,
       ),
     ];
   }
 
   @override
   Future<List<Match>> getLastMatches() async {
-    return [];
+    return [
+      Match(
+        id: 'last-1',
+        homeTeam: 'Erzurumspor FK',
+        homeTeamShort: 'ERZ',
+        awayTeam: 'Göztepe',
+        awayTeamShort: 'GÖZ',
+        matchDate: DateTime(2025, 8, 30, 19, 0),
+        stadium: 'Kazım Karabekir Stadyumu',
+        league: 'Trendyol 1. Lig',
+        week: 2,
+        homeScore: 2,
+        awayScore: 1,
+        status: MatchStatus.finished,
+      ),
+      Match(
+        id: 'last-2',
+        homeTeam: 'Sakaryaspor',
+        homeTeamShort: 'SAK',
+        awayTeam: 'Erzurumspor FK',
+        awayTeamShort: 'ERZ',
+        matchDate: DateTime(2025, 8, 23, 16, 0),
+        stadium: 'Sakarya Atatürk Stadyumu',
+        league: 'Trendyol 1. Lig',
+        week: 1,
+        homeScore: 0,
+        awayScore: 0,
+        status: MatchStatus.finished,
+      ),
+    ];
   }
 }

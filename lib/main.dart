@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'core/theme/app_theme.dart';
 import 'core/constants/app_constants.dart';
 import 'data/repositories/firebase_news_repository.dart';
-import 'data/repositories/match_repository.dart';
+import 'data/repositories/mock_match_repository.dart';
 import 'data/repositories/firebase_squad_repository.dart';
 import 'data/repositories/mock_shop_repository.dart';
 import 'data/repositories/standings_repository.dart';
@@ -33,7 +33,8 @@ class ErzurumsporfkApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final newsRepo = FirebaseNewsRepository();
-    final matchRepo = MatchRepository();
+    // TODO: Real match data integration
+    final matchRepo = MockMatchRepository();
     final squadRepo = FirebaseSquadRepository();
     final shopRepo = MockShopRepository();
     final standingsRepo = StandingsRepository();

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_text_styles.dart';
 import '../../pages/wallpapers/wallpapers_page.dart';
+import '../../pages/about/about_page.dart';
 
 /// Menü öğesi veri modeli.
 class DrawerMenuItem {
@@ -27,7 +28,13 @@ class DrawerMenuSection extends StatelessWidget {
     const DrawerMenuItem(label: 'Yönetim Kurulu'),
     const DrawerMenuItem(label: 'Tesisler'),
     const DrawerMenuItem(label: 'Başarılar'),
-    const DrawerMenuItem(label: 'Hakkımızda'),
+    DrawerMenuItem(
+      label: 'Hakkımızda',
+      onTap: (context) => Navigator.push(
+        context,
+        MaterialPageRoute(builder: (_) => const AboutPage())
+      ),
+    ),
   ];
 
   @override
@@ -39,7 +46,6 @@ class DrawerMenuSection extends StatelessWidget {
   }
 }
 
-/// Tek bir menü satırı.
 class _MenuItemTile extends StatelessWidget {
   final DrawerMenuItem item;
 

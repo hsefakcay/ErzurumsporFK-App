@@ -39,10 +39,7 @@ class NextMatchCard extends StatelessWidget {
               Flexible(
                 child: Text(
                   match.stadium,
-                  style: AppTextStyles.bodyMd.copyWith(
-                    color: AppColors.onSurfaceVariant,
-                    fontSize: 13,
-                  ),
+                  style: AppTextStyles.bodySm,
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
@@ -135,8 +132,18 @@ class NextMatchCard extends StatelessWidget {
 
   String _formatFullDate(DateTime d) {
     const months = [
-      'Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran',
-      'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık',
+      'Ocak',
+      'Şubat',
+      'Mart',
+      'Nisan',
+      'Mayıs',
+      'Haziran',
+      'Temmuz',
+      'Ağustos',
+      'Eylül',
+      'Ekim',
+      'Kasım',
+      'Aralık',
     ];
     const days = ['Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi', 'Pazar'];
     return '${d.day} ${months[d.month - 1]} ${days[d.weekday - 1]}, ${d.hour.toString().padLeft(2, '0')}:${d.minute.toString().padLeft(2, '0')}';
