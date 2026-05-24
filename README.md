@@ -40,18 +40,15 @@
 
 ## 📸 Screenshots
 
-> Add your app screenshots to the `docs/screenshots/` folder and update the paths below.
-
 <div align="center">
 
 | Home | Home | Fixtures |
 |------|----------|-------|
-| <img width="200" alt="Home" src="https://github.com/user-attachments/assets/ed5d317b-6250-4fe9-8396-1a0658a7ff8e" /> | <img width="200" alt="Squad" src="https://github.com/user-attachments/assets/48763206-f502-4a00-b6c0-52045e2f8f23" /> | <img width="200" alt="Fixtures" src="https://github.com/user-attachments/assets/d05dfab6-f2bd-4b43-b452-6519218ce363" /> |
+| <img width="200" alt="Home" src="https://github.com/user-attachments/assets/ed5d317b-6250-4fe9-8396-1a0658a7ff8e" /> | <img width="200" alt="Home" src="https://github.com/user-attachments/assets/48763206-f502-4a00-b6c0-52045e2f8f23" /> | <img width="200" alt="Fixtures" src="https://github.com/user-attachments/assets/d05dfab6-f2bd-4b43-b452-6519218ce363" /> |
 
-| Squad | Squad | Standings |
+| Standings | Squad | Squad |
 |-----------|------|------------|
-| <img width="200" alt="Standings" src="https://github.com/user-attachments/assets/7e8b97b7-7b5f-42ab-9c1b-67de0b8a4235" /> | <img width="200" alt="Shop" src="https://github.com/user-attachments/assets/cc21d8e0-083a-4d1b-b6d3-8ff66534dd00" /> | <img width="200" alt="Wallpapers" src="docs/screenshots/wallpapers.png" /> |
-
+| <img width="200" alt="Standings" src="https://github.com/user-attachments/assets/04a2188d-c304-4ade-ac68-98f43d3482be" /> | <img width="200" alt="Squad" src="https://github.com/user-attachments/assets/7e8b97b7-7b5f-42ab-9c1b-67de0b8a4235" /> | <img width="200" alt="Squad" src="https://github.com/user-attachments/assets/cc21d8e0-083a-4d1b-b6d3-8ff66534dd00" /> |
 </div>
 
 ---
