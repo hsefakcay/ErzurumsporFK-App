@@ -50,8 +50,7 @@
 |-----------|------|------------|
 | <img width="200" alt="Standings" src="https://github.com/user-attachments/assets/04a2188d-c304-4ade-ac68-98f43d3482be" /> | <img width="200" alt="Squad" src="https://github.com/user-attachments/assets/7e8b97b7-7b5f-42ab-9c1b-67de0b8a4235" /> | <img width="200" alt="Squad" src="https://github.com/user-attachments/assets/cc21d8e0-083a-4d1b-b6d3-8ff66534dd00" /> |
 
-| <img width="200" alt="Drawer" src="https://github.com/user-attachments/assets/313af8f3-79ef-49f6-87a0-1c7abaf1a9bc" />
-" /> |
+| <img width="200" alt="Drawer" src="https://github.com/user-attachments/assets/313af8f3-79ef-49f6-87a0-1c7abaf1a9bc" /> |
 
 </div>
 
