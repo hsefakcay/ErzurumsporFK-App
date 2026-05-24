@@ -6,7 +6,6 @@
 
 **Official Mobile Application**
 
-*Trendyol 1. Lig • Kazım Karabekir Stadyumu*
 
 [![Flutter](https://img.shields.io/badge/Flutter-3.x-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev)
 [![Dart](https://img.shields.io/badge/Dart-3.9-0175C2?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev)
@@ -139,35 +138,6 @@ flutter pub get
 # 4. Run the app
 flutter run
 ```
-
-### Platform Support
-
-| Platform | Status |
-|---|---|
-| 🤖 Android | ✅ Supported |
-| 🍎 iOS | ✅ Supported |
-| 🌐 Web | ✅ Supported |
-| 🖥️ macOS | ✅ Supported |
-| 🐧 Linux | ✅ Supported |
-| 🪟 Windows | ✅ Supported |
-
----
-
-## 📂 Firebase Data Scripts
-
-The `lib/scripts/` directory contains utility scripts for seeding initial data to Firestore:
-
-```bash
-# Import news articles
-dart run lib/scripts/import_news.dart
-
-# Import player squad
-dart run lib/scripts/import_players.dart
-
-# Import coaching staff
-dart run lib/scripts/import_staffs.dart
-```
-
 ---
 
 ## 🤝 Contributing
