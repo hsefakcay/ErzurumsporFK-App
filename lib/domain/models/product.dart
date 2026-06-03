@@ -1,4 +1,4 @@
-/// Mağaza ürün modeli
+/// Shop product model
 class Product {
   final String id;
   final String name;
@@ -26,6 +26,6 @@ class Product {
     return '$intPrice TL';
   }
 
-  /// Ürünün görseli local asset mi?
+  /// Whether the product image is a local asset.
   bool get isLocalAsset => localAssetPath != null;
 }

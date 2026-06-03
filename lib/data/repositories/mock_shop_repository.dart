@@ -2,8 +2,8 @@ import '../../core/constants/app_constants.dart';
 import '../../domain/models/product.dart';
 import '../../domain/repositories/repositories.dart';
 
-/// Mock veri kaynağı - IShopRepository implementasyonu.
-/// Local asset'lerdeki forma görsellerini showcase olarak listeler.
+/// Mock data source — IShopRepository implementation.
+/// Lists local asset jersey images as a product showcase.
 class MockShopRepository implements IShopRepository {
   static const _products = [
     Product(

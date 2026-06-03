@@ -4,10 +4,9 @@ import '../../../domain/repositories/repositories.dart';
 import 'widgets/shop_banner.dart';
 import 'widgets/product_card.dart';
 
-/// Mağaza sayfası.
-/// SRP: Sadece mağaza sayfasının düzenini (layout) yönetir.
-/// Ürünleri fiyat göstermeden tanıtım (showcase) olarak listeler.
-/// "Hemen Al" butonu dış mağaza sitesine yönlendirir.
+/// Shop page — product showcase layout.
+/// SRP: Only manages the shop page layout.
+/// Sub-widgets are defined in separate files.
 class ShopPage extends StatelessWidget {
   final IShopRepository shopRepository;
 
@@ -16,24 +15,23 @@ class ShopPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final products = shopRepository.getProducts();
-    final featured = shopRepository.getFeaturedProduct();
 
     return SingleChildScrollView(
       padding: const EdgeInsets.all(16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Öne çıkan ürün banner'ı (Efsane Çubuklu Forma)
-          if (featured != null) ShopBanner(product: featured),
+          // Auto-rotating product carousel banner
+          if (products.isNotEmpty) ShopBanner(products: products),
           const SizedBox(height: 20),
-          // Ürün grid'i
+          // Product grid
           _buildProductGrid(products),
         ],
       ),
     );
   }
 
-  /// Ürün grid layout'u.
+  /// Responsive product grid layout.
   Widget _buildProductGrid(List<Product> products) {
     return LayoutBuilder(
       builder: (context, constraints) {

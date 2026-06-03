@@ -5,9 +5,9 @@ import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_text_styles.dart';
 import '../../../../domain/models/product.dart';
 
-/// Mağaza ürün kartı.
-/// Fiyat göstermeden ürün tanıtımı (showcase) yapar.
-/// "Hemen Al" butonu dış mağaza sitesine yönlendirir.
+/// Product showcase card widget.
+/// Displays product image and name without price information.
+/// "Buy Now" button redirects to the external store website.
 class ProductCard extends StatelessWidget {
   final Product product;
 
@@ -33,29 +33,22 @@ class ProductCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          // Gold thread üst
+          // Gold accent line at top
           Container(
             height: 1,
             decoration: BoxDecoration(
-              gradient: LinearGradient(colors: [
-                Colors.transparent,
-                AppColors.primary.withValues(alpha: 0.5),
-                Colors.transparent,
-              ]),
+              gradient: LinearGradient(
+                colors: [Colors.transparent, AppColors.primary, Colors.transparent],
+              ),
             ),
           ),
-          // Ürün görseli
+          // Product image — fills card width
           AspectRatio(
-            aspectRatio: 1,
+            aspectRatio: 0.85,
             child: Stack(
+              fit: StackFit.expand,
               children: [
-                Container(
-                  color: AppColors.surfaceContainer,
-                  padding: const EdgeInsets.all(12),
-                  child: Center(
-                    child: _buildProductImage(),
-                  ),
-                ),
+                _buildProductImage(),
                 if (product.isNew)
                   Positioned(
                     top: 8,
@@ -79,32 +72,19 @@ class ProductCard extends StatelessWidget {
               ],
             ),
           ),
-          // Ürün bilgileri
+          // Product info section
           Padding(
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(8),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
                   product.name,
-                  style: AppTextStyles.bodyMd.copyWith(fontSize: 13),
+                  style: AppTextStyles.bodySm,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
-                if (product.description != null) ...[
-                  const SizedBox(height: 2),
-                  Text(
-                    product.description!,
-                    style: AppTextStyles.labelMd.copyWith(
-                      color: AppColors.onSurfaceVariant,
-                      fontSize: 10,
-                      letterSpacing: 0,
-                    ),
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ],
                 const SizedBox(height: 10),
                 SizedBox(
                   width: double.infinity,
@@ -130,17 +110,18 @@ class ProductCard extends StatelessWidget {
     );
   }
 
-  /// Ürün görseli: local asset veya network image
+  /// Builds the product image widget.
+  /// Uses local asset if available, otherwise falls back to a placeholder icon.
   Widget _buildProductImage() {
     if (product.isLocalAsset) {
       return Image.asset(
         product.localAssetPath!,
-        fit: BoxFit.contain,
-        errorBuilder: (_, __, ___) =>
-            const Icon(Icons.image, color: AppColors.outline),
+        fit: BoxFit.cover,
+        width: double.infinity,
+        errorBuilder: (_, __, ___) => const Icon(Icons.image, color: AppColors.outline),
       );
     }
-    // Fallback: network image (gelecekte kullanılabilir)
+    // Fallback: placeholder for future network image support
     return const Icon(Icons.image, color: AppColors.outline);
   }
 }
