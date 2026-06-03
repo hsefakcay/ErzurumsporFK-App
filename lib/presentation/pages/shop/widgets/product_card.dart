@@ -43,35 +43,7 @@ class ProductCard extends StatelessWidget {
             ),
           ),
           // Product image — fills card width
-          AspectRatio(
-            aspectRatio: 0.85,
-            child: Stack(
-              fit: StackFit.expand,
-              children: [
-                _buildProductImage(),
-                if (product.isNew)
-                  Positioned(
-                    top: 8,
-                    right: 8,
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
-                      decoration: BoxDecoration(
-                        color: AppColors.surface,
-                        borderRadius: BorderRadius.circular(4),
-                        border: Border.all(color: AppColors.primary.withValues(alpha: 0.3)),
-                      ),
-                      child: Text(
-                        'YENİ',
-                        style: AppTextStyles.labelMd.copyWith(
-                          fontSize: 9,
-                          color: AppColors.primary,
-                        ),
-                      ),
-                    ),
-                  ),
-              ],
-            ),
-          ),
+          AspectRatio(aspectRatio: 0.75, child: _buildProductImage()),
           // Product info section
           Padding(
             padding: const EdgeInsets.all(8),
@@ -81,7 +53,7 @@ class ProductCard extends StatelessWidget {
               children: [
                 Text(
                   product.name,
-                  style: AppTextStyles.bodySm,
+                  style: AppTextStyles.bodySm.copyWith(fontWeight: FontWeight.bold),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -91,7 +63,7 @@ class ProductCard extends StatelessWidget {
                   child: OutlinedButton.icon(
                     onPressed: _launchStore,
                     icon: const Icon(Icons.shopping_bag_outlined, size: 14),
-                    label: const Text('HEMEN AL', style: TextStyle(fontSize: 10)),
+                    label: Text('HEMEN AL', style: AppTextStyles.labelMd),
                     style: OutlinedButton.styleFrom(
                       foregroundColor: AppColors.primary,
                       side: const BorderSide(color: AppColors.primary),
