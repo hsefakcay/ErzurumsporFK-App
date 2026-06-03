@@ -26,9 +26,8 @@ abstract interface class ISquadRepository {
 
 abstract interface class IShopRepository {
   List<Product> getProducts();
-  List<Product> getProductsByCategory(String category);
-  List<String> getCategories();
   Product? getFeaturedProduct();
+  String getStoreUrl();
 }
 
 abstract interface class IStandingsRepository {

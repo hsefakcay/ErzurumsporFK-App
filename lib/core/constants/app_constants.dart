@@ -17,6 +17,17 @@ abstract final class AppAssets {
 
   /// Tüm duvar kağıtları listesi
   static const List<String> wallpapers = [wallpaper1, wallpaper2, wallpaper3];
+
+  // Ürün görselleri
+  static const String productBahar = 'assets/images/products/bahar.png';
+  static const String productGuz = 'assets/images/products/guz.png';
+  static const String productKis = 'assets/images/products/kis.png';
+  static const String productEfsaneCubuklu = 'assets/images/products/efsane_cubuklu.png';
+}
+
+/// Dış bağlantılar
+abstract final class AppUrls {
+  static const String store = 'https://erzurumsporfkstore.org/';
 }
 
 /// Tasarım sabitleri (spacing, radius, vb.)

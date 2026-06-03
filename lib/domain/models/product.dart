@@ -3,21 +3,29 @@ class Product {
   final String id;
   final String name;
   final String category;
-  final double price;
-  final String imageUrl;
+  final double? price;
+  final String? imageUrl;
+  final String? localAssetPath;
+  final String? description;
   final bool isNew;
 
   const Product({
     required this.id,
     required this.name,
     required this.category,
-    required this.price,
-    required this.imageUrl,
+    this.price,
+    this.imageUrl,
+    this.localAssetPath,
+    this.description,
     this.isNew = false,
   });
 
-  String get formattedPrice {
-    final intPrice = price.toInt();
+  String? get formattedPrice {
+    if (price == null) return null;
+    final intPrice = price!.toInt();
     return '$intPrice TL';
   }
+
+  /// Ürünün görseli local asset mi?
+  bool get isLocalAsset => localAssetPath != null;
 }

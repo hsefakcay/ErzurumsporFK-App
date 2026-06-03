@@ -1,15 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:url_launcher/url_launcher.dart';
+import '../../../../core/constants/app_constants.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_text_styles.dart';
 import '../../../../domain/models/product.dart';
 
 /// Mağaza ürün kartı.
-/// Grid içinde her bir ürünü gösterir.
+/// Fiyat göstermeden ürün tanıtımı (showcase) yapar.
+/// "Hemen Al" butonu dış mağaza sitesine yönlendirir.
 class ProductCard extends StatelessWidget {
   final Product product;
 
   const ProductCard({super.key, required this.product});
+
+  Future<void> _launchStore() async {
+    final uri = Uri.parse(AppUrls.store);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,13 +53,7 @@ class ProductCard extends StatelessWidget {
                   color: AppColors.surfaceContainer,
                   padding: const EdgeInsets.all(12),
                   child: Center(
-                    child: CachedNetworkImage(
-                      imageUrl: product.imageUrl,
-                      fit: BoxFit.contain,
-                      placeholder: (_, __) => const SizedBox(),
-                      errorWidget: (_, __, ___) =>
-                          const Icon(Icons.image, color: AppColors.outline),
-                    ),
+                    child: _buildProductImage(),
                   ),
                 ),
                 if (product.isNew)
@@ -89,29 +92,26 @@ class ProductCard extends StatelessWidget {
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
-                const SizedBox(height: 2),
-                Text(
-                  product.category,
-                  style: AppTextStyles.labelMd.copyWith(
-                    color: AppColors.onSurfaceVariant,
-                    fontSize: 11,
+                if (product.description != null) ...[
+                  const SizedBox(height: 2),
+                  Text(
+                    product.description!,
+                    style: AppTextStyles.labelMd.copyWith(
+                      color: AppColors.onSurfaceVariant,
+                      fontSize: 10,
+                      letterSpacing: 0,
+                    ),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
                   ),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  product.formattedPrice,
-                  style: AppTextStyles.headlineMd.copyWith(
-                    color: AppColors.primary,
-                    fontSize: 18,
-                  ),
-                ),
-                const SizedBox(height: 8),
+                ],
+                const SizedBox(height: 10),
                 SizedBox(
                   width: double.infinity,
                   child: OutlinedButton.icon(
-                    onPressed: () {},
-                    icon: const Icon(Icons.add_shopping_cart, size: 14),
-                    label: const Text('SEPETE EKLE', style: TextStyle(fontSize: 10)),
+                    onPressed: _launchStore,
+                    icon: const Icon(Icons.shopping_bag_outlined, size: 14),
+                    label: const Text('HEMEN AL', style: TextStyle(fontSize: 10)),
                     style: OutlinedButton.styleFrom(
                       foregroundColor: AppColors.primary,
                       side: const BorderSide(color: AppColors.primary),
@@ -128,5 +128,19 @@ class ProductCard extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  /// Ürün görseli: local asset veya network image
+  Widget _buildProductImage() {
+    if (product.isLocalAsset) {
+      return Image.asset(
+        product.localAssetPath!,
+        fit: BoxFit.contain,
+        errorBuilder: (_, __, ___) =>
+            const Icon(Icons.image, color: AppColors.outline),
+      );
+    }
+    // Fallback: network image (gelecekte kullanılabilir)
+    return const Icon(Icons.image, color: AppColors.outline);
   }
 }

@@ -1,15 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:url_launcher/url_launcher.dart';
+import '../../../../core/constants/app_constants.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_text_styles.dart';
 import '../../../../domain/models/product.dart';
 import '../../../widgets/common_widgets.dart';
 
 /// Mağaza sayfasındaki öne çıkan ürün banner'ı.
+/// Efsane Çubuklu Forma'yı showcase olarak gösterir.
 class ShopBanner extends StatelessWidget {
   final Product product;
 
   const ShopBanner({super.key, required this.product});
+
+  Future<void> _launchStore() async {
+    final uri = Uri.parse(AppUrls.store);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,13 +43,7 @@ class ShopBanner extends StatelessWidget {
         fit: StackFit.expand,
         children: [
           // Ürün görseli
-          CachedNetworkImage(
-            imageUrl: product.imageUrl,
-            fit: BoxFit.cover,
-            alignment: Alignment.centerRight,
-            placeholder: (_, __) => Container(color: AppColors.surfaceContainer),
-            errorWidget: (_, __, ___) => Container(color: AppColors.surfaceContainer),
-          ),
+          _buildBannerImage(),
           // Gradient overlay
           Container(
             decoration: BoxDecoration(
@@ -90,7 +93,7 @@ class ShopBanner extends StatelessWidget {
                       Container(width: 24, height: 1, color: AppColors.primary),
                       const SizedBox(width: 8),
                       Text(
-                        'YENİ SEZON',
+                        'ÖNE ÇIKAN',
                         style: AppTextStyles.labelMd.copyWith(
                           color: AppColors.primary,
                           letterSpacing: 2,
@@ -99,12 +102,15 @@ class ShopBanner extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 8),
-                  Text('24/25 İç\nSaha\nForması', style: AppTextStyles.headlineLg),
+                  Text(
+                    'Efsane\nÇubuklu\nForma',
+                    style: AppTextStyles.headlineLg,
+                  ),
                   const SizedBox(height: 8),
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.5,
                     child: Text(
-                      'Karanlıktan doğan güç. Yeni sezon iç saha forması ile takımını destekle.',
+                      product.description ?? 'Erzurumspor FK\'nın ikonik çubuklu forması.',
                       style: AppTextStyles.bodyMd.copyWith(
                         color: AppColors.onSurfaceVariant,
                         fontSize: 13,
@@ -114,7 +120,11 @@ class ShopBanner extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  GoldButton(label: 'Hemen Al', icon: Icons.shopping_bag, onPressed: () {}),
+                  GoldButton(
+                    label: 'Hemen Al',
+                    icon: Icons.shopping_bag,
+                    onPressed: _launchStore,
+                  ),
                 ],
               ),
             ),
@@ -122,5 +132,19 @@ class ShopBanner extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  /// Banner görseli: local asset veya network
+  Widget _buildBannerImage() {
+    if (product.isLocalAsset) {
+      return Image.asset(
+        product.localAssetPath!,
+        fit: BoxFit.cover,
+        alignment: Alignment.centerRight,
+        errorBuilder: (_, __, ___) =>
+            Container(color: AppColors.surfaceContainer),
+      );
+    }
+    return Container(color: AppColors.surfaceContainer);
   }
 }
